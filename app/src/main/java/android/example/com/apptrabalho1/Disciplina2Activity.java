@@ -3,52 +3,29 @@ package android.example.com.apptrabalho1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Disciplina2Activity extends AppCompatActivity {
-    TextView cargaHoraria;
-    TextView codigo;
-    TextView descricao;
-    TextView cargaHorariaRelogio;
+    GridView myGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disciplina2);
 
+        myGridView = findViewById(R.id.gridView);
+
         ArrayList<Disciplina> listaDisciplina = getIntent().getParcelableArrayListExtra("listaDisciplinas");
 
-        Log.i("stesda",listaDisciplina.get(0).getDescricao());
-
         if(listaDisciplina != null){
+            ArrayAdapter<Disciplina> myAdapter=  new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listaDisciplina);
 
-            Disciplina dc = listaDisciplina.get(1);
-
-            Log.i("carga",String.valueOf(dc.getCargaHoraria()));
-            Log.i("codigo",String.valueOf(dc.getCodigo()));
-            Log.i("desc",dc.getDescricao());
-            Log.i("carga2",String.valueOf(dc.convertCargaToHora()));
-
-            cargaHoraria = findViewById(R.id.cargaHorario);
-            codigo = findViewById(R.id.codigo);
-            descricao = findViewById(R.id.descricao);
-            cargaHorariaRelogio = findViewById(R.id.cargaHorarioRelogio);
-
-            String cargaHorariaPlace = "Carga Horária: "+ String.valueOf(dc.getCargaHoraria());
-            String codigoPlace = "Codigo: " + String.valueOf(dc.getCodigo());
-            String descricaoPlace = "Descrição: " + dc.getDescricao();
-            String cargaHorariaRelogioPlace = "Carga  Horária(converted): " + String.valueOf(dc.convertCargaToHora());
-
-            cargaHoraria.setText(cargaHorariaPlace);
-            codigo.setText(codigoPlace);
-            descricao.setText(descricaoPlace);
-            cargaHorariaRelogio.setText(cargaHorariaRelogioPlace);
+            myGridView.setAdapter(myAdapter);
         }
-
-
-
-
     }
 }

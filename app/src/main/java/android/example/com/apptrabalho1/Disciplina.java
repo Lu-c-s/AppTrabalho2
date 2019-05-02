@@ -74,6 +74,11 @@ public class Disciplina implements Parcelable {
     public Double convertCargaToHora(){
         return Double.valueOf((this.cargaHoraria * 50)/60.0);
     }
+
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }
 
 

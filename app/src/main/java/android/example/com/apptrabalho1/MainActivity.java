@@ -32,14 +32,16 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener goToDisplinaListener = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            Disciplina dc = new Disciplina(1000,9000, "Calculo1");
+            Disciplina dc1 = new Disciplina(1001,9000, "Calculo1");
+            Disciplina dc2 = new Disciplina(1002,8000, "Calculo2");
+            Disciplina dc3  = new Disciplina(1003,7000, "Calculo3");
+            Disciplina dc4  = new Disciplina(1004,7000, "Calculo4");
+            Disciplina dc5  = new Disciplina(1005,7000, "Calculo5");
 
-            Log.i("main",String.valueOf(dc.getCodigo()));
-            Log.i("main",String.valueOf(dc.getCargaHoraria()));
-            Log.i("main",String.valueOf(dc.getDescricao()));
+            ArrayList<Disciplina> dcs = new ArrayList<>(asList(dc1,dc2,dc3,dc4,dc5));
 
             Intent i = new Intent(MainActivity.this, DisciplinaActivity.class);
-            i.putExtra("Disciplina", dc);
+            i.putParcelableArrayListExtra("listaDisciplinas", dcs);
             startActivity(i);
         }
     };
