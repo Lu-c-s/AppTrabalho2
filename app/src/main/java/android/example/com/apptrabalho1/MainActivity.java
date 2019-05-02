@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             Disciplina dc4  = new Disciplina(1004,7000, "Calculo4");
             Disciplina dc5  = new Disciplina(1005,7000, "Calculo5");
 
-            ArrayList<Disciplina> dcs = new ArrayList<>(asList(dc1,dc2,dc3));
+            ArrayList<Disciplina> dcs = new ArrayList<>(asList(dc1,dc2,dc3,dc4,dc5));
 
             Intent i = new Intent(MainActivity.this, Disciplina2Activity.class);
             i.putParcelableArrayListExtra("listaDisciplinas", dcs);

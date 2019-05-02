@@ -47,8 +47,6 @@ public class Disciplina implements Parcelable {
     }
 
 
-
-
     public Integer getCodigo() {
         return codigo;
     }
